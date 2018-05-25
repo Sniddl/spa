@@ -152,10 +152,4 @@ window.reloadPagesFromMeta = function(fn=function(){}) {
   })
 }
 
-reloadPagesFromMeta(() => {
-  console.log('loaded all pages');
-})
-
-window.onPagesReloaded = function() {
-  console.log('asdfasdfas');
-}
+reloadPagesFromMeta()

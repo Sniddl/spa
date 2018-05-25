@@ -1,7 +1,7 @@
 {
   "name": "sniddl-spa",
-  "version": "1.0.1",
-  "description": "Use hashes to navigate pages without redirecting.",
+  "version": "1.0.2",
+  "description": "Render pages in the background & navigate site without redirecting. Uses native JS & HTML meta tags.",
   "main": "dist/main.js",
   "scripts": {
     "dev": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",

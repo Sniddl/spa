@@ -158,10 +158,4 @@ window.reloadPagesFromMeta = function () {
   });
 };
 
-reloadPagesFromMeta(function () {
-  console.log('loaded all pages');
-});
-
-window.onPagesReloaded = function () {
-  console.log('asdfasdfas');
-};
+reloadPagesFromMeta();
