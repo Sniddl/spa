@@ -14,13 +14,8 @@
   padding: 1rem 3rem;
 }
 
-.nav {
-  border-bottom: 1px solid #ccc;
-  height: 60px;
-}
-
 .has-nav {
-  padding-top: 60px
+  padding-top: 57px
 }
 
 .pricing-header {
