@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/sniddl/spa#readme",
   "devDependencies": {
+    "hoek": "^4.2.1",
     "laravel-mix": "^2.1.11"
   }
 }
