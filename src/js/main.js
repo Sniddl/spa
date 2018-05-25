@@ -147,6 +147,7 @@ window.reloadPagesFromMeta = function(fn=function(){}) {
 
     window.addEventListener("hashchange", function () {
       getLandingPage()
+      window.scroll(0,0)
     });
   })
 }

@@ -89,17 +89,16 @@ function createNeededElements() {
 
 function loadPageIntoDOM(name) {
   var fn = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : function () {};
-  var err = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : function () {};
 
   var meta = getPageMetaByName(name);
-  if (!meta) return err(name, '404');
+  if (!meta) return fn(name, '404');
   var div = SniddlCreateEl({
     parent: '#pages',
     attr: { id: 'page-' + name }
   });
-  if (div.classList.contains('page-visible')) return err(name, 'already-visible');
+  if (div.classList.contains('page-visible')) return fn(name, 'already-visible');
   div.classList.add('page-hidden');
-  window.$pages.push(div);
+  window.$pages[name] = div;
   fetchPage(meta.getAttribute('content'), function (res) {
     div.innerHTML = res;
     fn(name);
@@ -127,26 +126,42 @@ function getLandingPage() {
   var arr = split.slice(1, split.length);
   window.$page.name = arr[0] || 'index';
   window.$params = arr.slice(1, arr.length);
-  loadPageIntoDOM(window.$page.name, function (name) {
-    return showPage(name);
-  }, function (name, err) {
+  loadPageIntoDOM(window.$page.name, function (name, err) {
     if (err === '404') showPage('404');else showPage(name);
   });
 }
 
-readyToLoadPages(function () {
-  window.$pages = [];
-  window.$page = {};
-  createNeededElements();
-  getLandingPage();
-  setTimeout(function () {
-    var pages = document.querySelectorAll('meta[property="sniddl:page"]');
-    pages.forEach(function (page) {
-      return loadPageIntoDOM(page.name);
-    });
-  }, 1000);
+window.reloadPagesFromMeta = function () {
+  var fn = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : function () {};
 
-  window.addEventListener("hashchange", function () {
+  readyToLoadPages(function () {
+    window.$pages = {};
+    window.$page = {};
+    createNeededElements();
     getLandingPage();
+    var pages = document.querySelectorAll('meta[property="sniddl:page"]');
+    var found = 0;
+    setTimeout(function () {
+      fn = window.onPagesReloaded || fn;
+      pages.forEach(function (page) {
+        return loadPageIntoDOM(page.name, function (name, err) {
+          found++;
+          if (found === pages.length) fn();
+        });
+      });
+    }, 500);
+
+    window.addEventListener("hashchange", function () {
+      getLandingPage();
+      window.scroll(0, 0);
+    });
   });
+};
+
+reloadPagesFromMeta(function () {
+  console.log('loaded all pages');
 });
+
+window.onPagesReloaded = function () {
+  console.log('asdfasdfas');
+};
