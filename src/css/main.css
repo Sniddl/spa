@@ -1,0 +1,29 @@
+.banner {
+  width: 100%;
+  height: 550px;
+  background-position: 0rem -20rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url(https://images.unsplash.com/photo-1437357320145-774924c38927?ixlib=rb-0.3.5…EyMDd9&s=5a80851…&auto=format&fit=crop&w=1432&q=80);
+}
+
+.banner .info {
+  position: absolute;
+  background: white;
+  top: 350px;
+  left: 0;
+  padding: 1rem 3rem;
+}
+
+.nav {
+  border-bottom: 1px solid #ccc;
+  height: 60px;
+}
+
+.has-nav {
+  padding-top: 60px
+}
+
+.pricing-header {
+  max-width: 700px;
+}

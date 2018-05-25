@@ -1,0 +1,32 @@
+{
+  "name": "sniddl-spa",
+  "version": "1.0.0",
+  "description": "Preload pages using javascript. Use hashes to navigate the pages without redirecting.",
+  "main": "dist/main.js",
+  "scripts": {
+    "dev": "NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "hot": "NODE_ENV=development webpack-dev-server --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "production": "NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sniddl/spa.git"
+  },
+  "keywords": [
+    "js",
+    "router",
+    "simple",
+    "framework",
+    "easy"
+  ],
+  "author": "Sniddl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sniddl/spa/issues"
+  },
+  "homepage": "https://github.com/sniddl/spa#readme",
+  "devDependencies": {
+    "laravel-mix": "^2.1.11"
+  }
+}
