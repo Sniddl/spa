@@ -64,6 +64,6 @@ window.onPagesReloaded = function () {
 ```
 
 ## Use Cases
-Electron Apps
-Fast loading web pages (w/out 3rd party ads)
-JS framework routing
+- Electron Apps
+- Fast loading web pages (w/out 3rd party ads)
+- JS framework routing
